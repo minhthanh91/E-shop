@@ -160,6 +160,8 @@ class productController extends Controller
 
   public function search(Request $req)
   {
+    //todo
+    // productController::displayPrice();
     global $reqInput;
     $reqInput = $req->input('userInput');
 

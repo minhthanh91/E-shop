@@ -12,7 +12,7 @@
         <input type="password" class="form-control" name="password" id="password" aria-describedby="emailHelpId" placeholder="password">
         <button type="submit" class="btn btn-primary mt-2">Login</button>
         <p class="small mt-3 text-muted">
-          If you haven't got a account already, let's <a href="register" class="text-primary">register</a>.
+          If you haven't got an account already, let's <a href="register" class="text-primary">register</a>.
         </p>
         
       </form>  

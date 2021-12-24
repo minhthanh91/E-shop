@@ -18,10 +18,7 @@ class userAuth
      */
     public function handle(Request $req, Closure $next)
     {
-      global $reqPath;
       $reqPath=$req->path();
-
-      // redirect to login page if user havent logged-in.
       $listToLogin=[
         'cartlist',
         'add_to_cart',
@@ -29,10 +26,9 @@ class userAuth
         'confirm_order',
         'myorders'
       ];
-      $isTrue=Arr::first($listToLogin, function($v){
-        global $reqPath;
-        if ($v==$reqPath) return true;
-      });
+      
+      // redirect to login page if user havent logged-in.  
+      $isTrue=in_array($reqPath,$listToLogin);
       if ( $isTrue && !$req->session()->has('user')) {
         return redirect('login');        
       }

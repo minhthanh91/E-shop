@@ -2,9 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\productController;
-
+use Tests\Feature\ExampleTest;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +16,8 @@ use App\Http\Controllers\productController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/start', [ExampleTest::class, 'start']);
 
 Route::view('/register', 'register');
 Route::post('/register', [userController::class, 'register']);

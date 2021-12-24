@@ -164,13 +164,16 @@ class productController extends Controller
     $reqInput = $req->input('userInput');
 
     $filteredData=product::all()->filter(function($singleProduct){
-      if (str_contains(strtolower($singleProduct->name), $GLOBALS['reqInput']))
+      if (str_contains(strtolower(Controller::vn_to_str($singleProduct->name)),
+        $GLOBALS['reqInput']))
         return true;
     });
 
     return view('search', ['data'=>$filteredData]);    
   }
 
+
+  // for check & test
   public function viewTable($tb)
   {
     $data=DB::table($tb)->get();

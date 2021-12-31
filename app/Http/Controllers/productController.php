@@ -160,10 +160,8 @@ class productController extends Controller
 
   public function search(Request $req)
   {
-    //todo
-    // productController::displayPrice();
     global $reqInput;
-    $reqInput = $req->input('userInput');
+    $reqInput = strtolower($req->input('userInput'));
 
     $filteredData=product::all()->filter(function($singleProduct){
       if (str_contains(strtolower(Controller::vn_to_str($singleProduct->name)),
